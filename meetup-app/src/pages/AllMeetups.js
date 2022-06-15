@@ -1,33 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 import classes from "./AllMeetup.module.css";
 
-const DUMMY_DATAS = [
-  {
-    id: "m1",
-    title: "This is a first meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-    address: "Meetupstreet 5, 12345 Meetup City",
-    description:
-      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
-  },
-  {
-    id: "m2",
-    title: "This is a second meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-    address: "Meetupstreet 5, 12345 Meetup City",
-    description:
-      "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
-  },
-];
-
-export default function AllMeetUpsPage() {
+export default function AllMeetups() {
+  const [datas, setDatas] = useState([
+    {
+      id: "m1",
+      title: "This is a first meetup",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      address: "Meetupstreet 5, 12345 Meetup City",
+      description:
+        "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+    },
+    {
+      id: "m2",
+      title: "This is a second meetup",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      address: "Meetupstreet 5, 12345 Meetup City",
+      description:
+        "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+    },
+  ]);
   return (
     <div>
-      <h1 className={classes.topHeader}>All Meetup</h1>
-      <MeetupList meetups={DUMMY_DATAS} />
+      <h1 className={classes.topHeader}>All Meetups</h1>
+      <MeetupList datas={datas} />
     </div>
   );
 }

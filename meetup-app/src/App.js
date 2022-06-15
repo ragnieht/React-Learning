@@ -1,26 +1,27 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import AllMeetUpsPage from "./pages/AllMeetups";
-import NewMeetUpPage from "./pages/NewMeetup";
-import FavouritesPage from "./pages/Favourites";
+import AllMeetups from "./pages/AllMeetups";
+import NewMeetup from "./pages/NewMeetup";
+import Favourites from "./pages/Favourites";
+import MainNavigation from "./components/layout/MainNavigation";
 import Layout from "./components/layout/Layout";
 
 export default function App() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" exact>
-          <AllMeetUpsPage />
-        </Route>
-
-        <Route path="/new-meetup">
-          <NewMeetUpPage />
-        </Route>
-
-        <Route path="/favourites">
-          <FavouritesPage />
-        </Route>
-      </Switch>
-    </Layout>
+    <div>
+      <Layout>
+        <Switch>
+          <Route path="/" exact>
+            <AllMeetups />
+          </Route>
+          <Route path="/new-meetup">
+            <NewMeetup />
+          </Route>
+          <Route path="/favourites">
+            <Favourites />
+          </Route>
+        </Switch>
+      </Layout>
+    </div>
   );
 }

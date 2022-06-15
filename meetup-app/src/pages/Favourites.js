@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function FavouritesPage() {
-  return <div>Favourites page</div>;
+export default function Favourites() {
+  return <div>Favourites</div>;
 }

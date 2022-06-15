@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
+import { Link } from "react-router-dom";
 
 export default function MainNavigation() {
   return (
@@ -9,7 +9,7 @@ export default function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link to="/">All Meetup</Link>
+            <Link to="/">All Meetups</Link>
           </li>
           <li>
             <Link to="/new-meetup">Add New Meetup</Link>
