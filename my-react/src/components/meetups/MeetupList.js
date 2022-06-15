@@ -1,21 +1,21 @@
+import React from "react";
 import MeetupItem from "./MeetupItem";
 import classes from "./MeetupList.module.css";
 
-function MeetupList(props) {
+export default function MeetupList(props) {
   return (
-    <ul className={classes.list}>
-      {props.meetups.map((meetup) => (
-        <MeetupItem
-          key={meetup.id}
-          id={meetup.id}
-          image={meetup.image}
-          title={meetup.title}
-          address={meetup.address}
-          description={meetup.description}
-        />
-      ))}
-    </ul>
+    <div className={classes.list}>
+      <li>
+        {props.datas.map((data) => (
+          <MeetupItem
+            key={data.id}
+            title={data.title}
+            image={data.image}
+            address={data.address}
+            description={data.description}
+          />
+        ))}
+      </li>
+    </div>
   );
 }
-
-export default MeetupList;
