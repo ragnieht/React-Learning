@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
 export default function AllMeetups() {
-  const [loading, setLoading] = useState(true);
-  const [loadedMeetups, setLoadedMeetups] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadedData, setLoadedData] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     fetch(
       "https://react-getting-started-2a53c-default-rtdb.asia-southeast1.firebasedatabase.app/meetups.json"
     )
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
         const meetups = [];
 
@@ -21,26 +19,23 @@ export default function AllMeetups() {
             id: key,
             ...data[key],
           };
-
           meetups.push(meetup);
         }
-
-        setLoading(false);
-        setLoadedMeetups(meetups);
+        setIsLoading(false);
+        setLoadedData(meetups);
       });
   }, []);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <section>
         <p>Loading...</p>
       </section>
     );
   }
-
   return (
     <div>
-      <MeetupList datas={loadedMeetups} />
+      <MeetupList datas={loadedData} />
     </div>
   );
 }

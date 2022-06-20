@@ -8,44 +8,42 @@ export default function NewMeetupForm(props) {
   const addressInputRef = useRef();
   const descriptionInputRef = useRef();
 
-  function submitHandler(e) {
+  const submitHandler = (e) => {
     e.preventDefault();
+
     const enteredTitle = titleInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
-    const meetupData = {
+    const newMeetup = {
       title: enteredTitle,
       image: enteredImage,
       address: enteredAddress,
       description: enteredDescription,
     };
-    props.onAddMeetup(meetupData);
-  }
+
+    props.onAddMeetup(newMeetup);
+  };
+
   return (
     <Card>
-      <form className={classes.form} onSubmit={submitHandler}>
-        <div className={classes.control}>
+      <div className={classes.form}>
+        <form className={classes.control} onSubmit={submitHandler}>
           <div>
             <label htmlFor="title">Meetup Title</label>
-            <input type="text" required id="title" ref={titleInputRef}></input>
+            <input type="text" required id="title" ref={titleInputRef} />
           </div>
           <div>
             <label htmlFor="image">Image Url</label>
-            <input type="url" required id="image" ref={imageInputRef}></input>
+            <input type="url" required id="image" ref={imageInputRef} />
           </div>
           <div>
             <label htmlFor="address">Meetup Address</label>
-            <input
-              type="text"
-              required
-              id="address"
-              ref={addressInputRef}
-            ></input>
+            <input type="text" required id="address" ref={addressInputRef} />
           </div>
           <div>
-            <label htmlFor="description">Meetup Title</label>
+            <label htmlFor="title">Meetup Title</label>
             <textarea
               required
               id="description"
@@ -53,11 +51,11 @@ export default function NewMeetupForm(props) {
               ref={descriptionInputRef}
             />
           </div>
-        </div>
-        <div className={classes.actions}>
-          <button>Add Meetup</button>
-        </div>
-      </form>
+          <div className={classes.actions}>
+            <button> Add Meetup</button>
+          </div>
+        </form>
+      </div>
     </Card>
   );
 }

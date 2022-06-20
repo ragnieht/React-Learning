@@ -4,9 +4,9 @@ import classes from "./Layout.module.css";
 
 export default function Layout(props) {
   return (
-    <section>
+    <div>
       <MainNavigation />
       <main className={classes.main}>{props.children}</main>
-    </section>
+    </div>
   );
 }

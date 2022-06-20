@@ -12,10 +12,10 @@ export default function App() {
         <Route path="/" exact>
           <AllMeetups />
         </Route>
-        <Route path="/new-meetup">
+        <Route path="/new-meetup" exact>
           <NewMeetup />
         </Route>
-        <Route path="/favourites">
+        <Route path="/favourites" exact>
           <Favourites />
         </Route>
       </Switch>

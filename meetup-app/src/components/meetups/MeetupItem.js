@@ -1,24 +1,8 @@
 import React from "react";
-import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
-import { useHistory } from "react-router-dom";
+import classes from "./MeetupItem.module.css";
 
 export default function MeetupItem(props) {
-  const history = useHistory();
-  function toFavHandler() {
-    fetch(
-      `https://react-getting-started-2a53c-default-rtdb.asia-southeast1.firebasedatabase.app/favourites.json`,
-      {
-        method: "POST",
-        body: JSON.stringify(props),
-        header: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then(() => {
-      history.replace("/favourites");
-    });
-  }
   return (
     <Card>
       <div className={classes.item}>
@@ -31,7 +15,7 @@ export default function MeetupItem(props) {
           <p>{props.description}</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={toFavHandler}>To Favourites</button>
+          <button>To Favourites</button>
         </div>
       </div>
     </Card>
