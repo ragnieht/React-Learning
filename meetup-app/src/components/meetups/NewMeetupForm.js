@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import classes from "./NewMeetupForm.module.css";
 import Card from "../ui/Card";
 
-export default function NewMeetupForm() {
+export default function NewMeetupForm(props) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
   const addressInputRef = useRef();
@@ -10,7 +10,6 @@ export default function NewMeetupForm() {
 
   function submitHandler(e) {
     e.preventDefault();
-
     const enteredTitle = titleInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
     const enteredAddress = addressInputRef.current.value;
@@ -22,32 +21,38 @@ export default function NewMeetupForm() {
       address: enteredAddress,
       description: enteredDescription,
     };
-    console.log(meetupData);
+    props.onAddMeetup(meetupData);
   }
-
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="title">New Meetup Title</label>
-          <input type="text" required id="title" ref={titleInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="image">New Image url</label>
-          <input type="url" required id="image" ref={imageInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="address">New Address</label>
-          <input type="text" required id="address" ref={addressInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="description">New Description</label>
-          <textarea
-            id="description"
-            required
-            rows="5"
-            ref={descriptionInputRef}
-          />
+          <div>
+            <label htmlFor="title">Meetup Title</label>
+            <input type="text" required id="title" ref={titleInputRef}></input>
+          </div>
+          <div>
+            <label htmlFor="image">Image Url</label>
+            <input type="url" required id="image" ref={imageInputRef}></input>
+          </div>
+          <div>
+            <label htmlFor="address">Meetup Address</label>
+            <input
+              type="text"
+              required
+              id="address"
+              ref={addressInputRef}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="description">Meetup Title</label>
+            <textarea
+              required
+              id="description"
+              rows="5"
+              ref={descriptionInputRef}
+            />
+          </div>
         </div>
         <div className={classes.actions}>
           <button>Add Meetup</button>
