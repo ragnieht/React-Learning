@@ -1,6 +1,4 @@
-import { useRef } from "react";
-
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./NewMeetupForm.module.css";
 import Card from "../ui/Card";
 
@@ -18,14 +16,14 @@ export default function NewMeetupForm(props) {
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
-    const meetupData = {
+    const newMeetup = {
       title: enteredTitle,
       image: enteredImage,
       address: enteredAddress,
       description: enteredDescription,
     };
 
-    props.onAddMeetup(meetupData);
+    props.onAddMeetup(newMeetup);
   }
 
   return (
@@ -36,7 +34,7 @@ export default function NewMeetupForm(props) {
           <input type="text" required id="title" ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor="image">Meetup Image</label>
+          <label htmlFor="image">Image Url</label>
           <input type="url" required id="image" ref={imageInputRef} />
         </div>
         <div className={classes.control}>
@@ -50,10 +48,10 @@ export default function NewMeetupForm(props) {
             required
             rows="5"
             ref={descriptionInputRef}
-          ></textarea>
+          />
         </div>
         <div className={classes.actions}>
-          <button>Add Meetup</button>
+          <button>Add New Meetup</button>
         </div>
       </form>
     </Card>

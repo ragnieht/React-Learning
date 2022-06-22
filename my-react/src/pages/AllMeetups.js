@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
-export default function AllMeetupsPage() {
-  const [loadedMeetups, setLoadedMeetups] = useState([]);
+export default function AllMeetups() {
   const [isLoading, setIsLoading] = useState(false);
+  const [loadedMeetups, setLoadedMeetups] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,15 +28,15 @@ export default function AllMeetupsPage() {
 
   if (isLoading) {
     return (
-      <section>
+      <div>
         <p>Loading...</p>
-      </section>
+      </div>
     );
   }
 
   return (
     <div>
-      <MeetupList datas={loadedMeetups} />
+      <MeetupList meetups={loadedMeetups} />
     </div>
   );
 }
