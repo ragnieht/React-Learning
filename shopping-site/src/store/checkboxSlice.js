@@ -1,4 +1,3 @@
-import { fabClasses } from "@mui/material";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -14,14 +13,33 @@ export const checkboxSlice = createSlice({
   name: "checkbox",
   initialState,
   reducers: {
-    toggleTops: (state, action) => {
+    toggleTopsBox: (state, action) => {
       state.topsChecked = action.payload.topsChecked;
     },
-    toggleBottoms: (state, action) => {
+    toggleBottomsBox: (state, action) => {
       state.bottomsChecked = action.payload.bottomsChecked;
+    },
+    toggleShoesBox: (state, action) => {
+      state.shoesChecked = action.payload.shoesChecked;
+    },
+    toggleMenBox: (state, action) => {
+      state.menChecked = action.payload.menChecked;
+    },
+    toggleWomenBox: (state, action) => {
+      state.womenChecked = action.payload.womenChecked;
+    },
+    toggleKidsBox: (state, action) => {
+      state.kidsChecked = action.payload.kidsChecked;
     },
   },
 });
 
-export const { toggleTops, toggleBottoms } = checkboxSlice.actions;
+export const {
+  toggleTopsBox,
+  toggleBottomsBox,
+  toggleShoesBox,
+  toggleMenBox,
+  toggleWomenBox,
+  toggleKidsBox,
+} = checkboxSlice.actions;
 export default checkboxSlice.reducer;

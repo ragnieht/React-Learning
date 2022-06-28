@@ -2,42 +2,107 @@ import React, { useState } from "react";
 import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTops } from "../../store/checkboxSlice";
+import {
+  toggleTopsBox,
+  toggleBottomsBox,
+  toggleShoesBox,
+  toggleMenBox,
+  toggleWomenBox,
+  toggleKidsBox,
+  addToDisplayType,
+  removeFromDisplayType,
+  addToDisplayFor,
+  removeFromDisplayFor,
+} from "../../store/itemSlice";
 
-export default function SideNavBarCheckboxType() {
+export default function SideNavBarCheckboxType(props) {
   // const history = useHistory();
   // function checkCurPath(type) {
   //   return history.location.pathname.split("-").some((path) => path === type);
   // }
-  const [topsChecked, setTopsChecked] = useState(false);
-  const [bottomsChecked, setBottomsChecked] = useState(false);
-
   const dispatch = useDispatch();
-  const test = useSelector((state) => state.checkbox);
+  const [topsToggle, setTopsToggle] = useState(false);
+  const [bottomsToggle, setBottomsToggle] = useState(false);
+  const [shoesToggle, setShoesToggle] = useState(false);
+  const [menToggle, setMenToggle] = useState(false);
+  const [womenToggle, setWomenToggle] = useState(false);
+  const [kidsToggle, setKidsToggle] = useState(false);
 
-  function toggleTops(e) {
-    setTopsChecked(e.target.checked);
-    dispatch(toggleTops({ topsChecked: !topsChecked }));
-    console.log(test);
+  function toggleTops() {
+    if (!topsToggle) {
+      dispatch(addToDisplayType({ type: "TOP" }));
+      setTopsToggle(!topsToggle);
+      dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
+    } else {
+      dispatch(removeFromDisplayType({ type: "TOP" }));
+      setTopsToggle(!topsToggle);
+      dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
+    }
   }
-  function toggleBottoms(e) {
-    setBottomsChecked(e.target.checked);
-
-    console.log(test);
+  function toggleBottoms() {
+    if (!bottomsToggle) {
+      dispatch(addToDisplayType({ type: "BOTTOM" }));
+      setBottomsToggle(!bottomsToggle);
+      dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
+    } else {
+      dispatch(removeFromDisplayType({ type: "BOTTOM" }));
+      setBottomsToggle(!bottomsToggle);
+      dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
+    }
   }
-  function toggleShoes() {}
-  function toggleMen() {}
-  function toggleWomen() {}
-  function toggleKids() {}
+  function toggleShoes() {
+    if (!shoesToggle) {
+      dispatch(addToDisplayType({ type: "SHOES" }));
+      setShoesToggle(!shoesToggle);
+      dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
+    } else {
+      dispatch(removeFromDisplayType({ type: "SHOES" }));
+      setShoesToggle(!shoesToggle);
+      dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
+    }
+  }
+  function toggleMen() {
+    if (!menToggle) {
+      dispatch(addToDisplayFor({ for: "MEN" }));
+      setMenToggle(!menToggle);
+      dispatch(toggleMenBox({ menChecked: !menToggle }));
+    } else {
+      dispatch(removeFromDisplayFor({ for: "MEN" }));
+      setMenToggle(!menToggle);
+      dispatch(toggleMenBox({ menChecked: !menToggle }));
+    }
+  }
+  function toggleWomen() {
+    if (!womenToggle) {
+      dispatch(addToDisplayFor({ for: "WOMEN" }));
+      setWomenToggle(!womenToggle);
+      dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
+    } else {
+      dispatch(removeFromDisplayFor({ for: "WOMEN" }));
+      setWomenToggle(!womenToggle);
+      dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
+    }
+  }
+  function toggleKids() {
+    if (!kidsToggle) {
+      dispatch(addToDisplayFor({ for: "KIDS" }));
+      setKidsToggle(!kidsToggle);
+      dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
+    } else {
+      dispatch(removeFromDisplayFor({ for: "KIDS" }));
+      setKidsToggle(!kidsToggle);
+      dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
+    }
+  }
 
   return (
     <FormGroup>
       <FormControlLabel
-        control={<Checkbox checked={topsChecked} onChange={toggleTops} />}
+        control={<Checkbox onChange={toggleTops} />}
         label="Tops"
       />
       <FormControlLabel
-        control={<Checkbox checked={bottomsChecked} onChange={toggleBottoms} />}
+        control={<Checkbox onChange={toggleBottoms} />}
         label="Bottoms"
       />
       <FormControlLabel
@@ -59,3 +124,8 @@ export default function SideNavBarCheckboxType() {
     </FormGroup>
   );
 }
+// checked={topsChecked}
+//             onChange={() => {
+//               props.topHandler("TOP", !topsChecked);
+//               setTopsChecked(!topsChecked);
+//             }}

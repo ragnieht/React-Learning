@@ -14,7 +14,11 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getItemsAsync());
+    dispatch(
+      getItemsAsync(
+        "https://apparel-shopping-default-rtdb.asia-southeast1.firebasedatabase.app/apparels.json"
+      )
+    );
   }, [dispatch]);
   return (
     <Switch>
