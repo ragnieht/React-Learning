@@ -15,44 +15,44 @@ export default function MainNavBar() {
       <nav>
         <ul>
           <li className={classes.menu}>
-            <Link to="/men">Men</Link>
+            <Link to="/shop-men">Men</Link>
             <ul className={classes.aniMenu}>
               <li>
-                <Link to="/men/tops">Tops</Link>
+                <Link to="/shop-men-tops">Tops</Link>
               </li>
               <li>
-                <Link to="/men/bottoms">Bottoms</Link>
+                <Link to="/shop-men-bottoms">Bottoms</Link>
               </li>
               <li>
-                <Link to="/men/shoe">Shoes</Link>
+                <Link to="/shop-men-shoes">Shoes</Link>
               </li>
             </ul>
           </li>
           <li className={classes.menu}>
-            <Link to="/women">Women</Link>
+            <Link to="/shop-women">Women</Link>
             <ul className={classes.aniMenu}>
               <li>
-                <Link to="/women/tops">Tops</Link>
+                <Link to="/shop-women-tops">Tops</Link>
               </li>
               <li>
-                <Link to="/women/bottoms">Bottoms</Link>
+                <Link to="/shop-women-bottoms">Bottoms</Link>
               </li>
               <li>
-                <Link to="/women/shoe">Shoes</Link>
+                <Link to="/shop-women-shoes">Shoes</Link>
               </li>
             </ul>
           </li>
           <li className={classes.menu}>
-            <Link to="/kids">Kids</Link>
+            <Link to="/shop-kids">Kids</Link>
             <ul className={classes.aniMenu}>
               <li>
-                <Link to="/women/tops">Tops</Link>
+                <Link to="/shop-kids-tops">Tops</Link>
               </li>
               <li>
-                <Link to="/women/bottoms">Bottoms</Link>
+                <Link to="/shop-kids-bottoms">Bottoms</Link>
               </li>
               <li>
-                <Link to="/women/shoe">Shoes</Link>
+                <Link to="/shop-kids-shoe">Shoes</Link>
               </li>
             </ul>
           </li>

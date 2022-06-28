@@ -1,10 +1,12 @@
 import React from "react";
-import MainItemsDisplay from "../components/Items/MainItemsDisplay";
 import { useSelector } from "react-redux";
+import MainItemsDisplay from "../components/Items/MainItemsDisplay";
 
-export default function WomenPage() {
+export default function AdultsPage() {
   const items = useSelector((state) => state.items);
-  const displayItems = items.filter((item) => item.for === "WOMEN");
+  const displayItems = items.filter(
+    (item) => item.for === "MEN" || item.for === "WOMEN"
+  );
 
   return (
     <div>

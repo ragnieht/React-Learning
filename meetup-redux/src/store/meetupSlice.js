@@ -40,6 +40,6 @@ export const meetupSlice = createSlice({
   },
 });
 
-export const { toggleFav, fetchMeetups } = meetupSlice.actions;
+export const { toggleFav } = meetupSlice.actions;
 
 export default meetupSlice.reducer;

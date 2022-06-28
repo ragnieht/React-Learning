@@ -1,5 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import MainItemsDisplay from "../components/Items/MainItemsDisplay";
 
 export default function KidsPage() {
-  return <div>KidsPage</div>;
+  const items = useSelector((state) => state.items);
+  const displayItems = items.filter((item) => item.for === "KIDS");
+
+  return (
+    <div>
+      <MainItemsDisplay items={displayItems} />
+    </div>
+  );
 }

@@ -1,15 +1,18 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import Banner from "../components/Banner/Banner";
+import classes from "./HomePage.module.css";
+import { Link } from "react-router-dom";
 
-import Banner from "../components/Banner";
 export default function HomePage() {
   return (
     <div>
       <div>
         <Banner />
       </div>
-      <div>
-        <Button />
+      <div className={classes.actions}>
+        <Link to="/shop-all">
+          <button>To Shops</button>
+        </Link>
       </div>
     </div>
   );
