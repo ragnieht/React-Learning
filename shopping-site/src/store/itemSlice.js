@@ -21,7 +21,6 @@ export const getItemsAsync = createAsyncThunk(
 );
 const initialState = {
   all: [],
-  display: [],
   checkBox: {
     topsChecked: false,
     bottomsChecked: false,
@@ -52,50 +51,6 @@ export const itemSlice = createSlice({
     },
     toggleKidsBox: (state, action) => {
       state.checkBox.kidsChecked = action.payload.kidsChecked;
-    },
-    addToDisplayType: (state, action) => {
-      // let temp = state.all.filter((item) => item.type === action.payload.type);
-      // state.display = [...state.display, ...temp];
-      let filtered = state.all.filter(
-        (item) => item.type === action.payload.type
-      );
-      let temp = [...state.display, ...filtered];
-      state.display = Array.from(new Set(temp.map(JSON.stringify))).map(
-        JSON.parse
-      );
-    },
-    removeFromDisplayType: (state, action) => {
-      // let temp = [...state.display];
-      // temp = temp.filter((item) => item.type !== action.payload.type);
-      // state.display = temp;
-      let filtered = state.display.filter(
-        (item) => item.type !== action.payload.type
-      );
-      let temp = [...filtered];
-      state.display = temp;
-    },
-    addToDisplayFor: (state, action) => {
-      // let temp = state.display.filter(
-      //   (item) => item.for === action.payload.for
-      // );
-      // state.display = [...state.display, ...temp];
-      let filtered = state.all.filter(
-        (item) => item.for === action.payload.for
-      );
-      let temp = [...state.display, ...filtered];
-      state.display = Array.from(new Set(temp.map(JSON.stringify))).map(
-        JSON.parse
-      );
-    },
-    removeFromDisplayFor: (state, action) => {
-      // let temp = [...state.display];
-      // temp = temp.filter((item) => item.for !== action.payload.for);
-      // state.display = temp;
-      let filtered = state.display.filter(
-        (item) => item.for !== action.payload.for
-      );
-      let temp = [...filtered];
-      state.display = temp;
     },
   },
   extraReducers: {

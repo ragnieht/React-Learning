@@ -30,66 +30,54 @@ export default function SideNavBarCheckboxType(props) {
 
   function toggleTops() {
     if (!topsToggle) {
-      dispatch(addToDisplayType({ type: "TOP" }));
       setTopsToggle(!topsToggle);
       dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
     } else {
-      dispatch(removeFromDisplayType({ type: "TOP" }));
       setTopsToggle(!topsToggle);
       dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
     }
   }
   function toggleBottoms() {
     if (!bottomsToggle) {
-      dispatch(addToDisplayType({ type: "BOTTOM" }));
       setBottomsToggle(!bottomsToggle);
       dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
     } else {
-      dispatch(removeFromDisplayType({ type: "BOTTOM" }));
       setBottomsToggle(!bottomsToggle);
       dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
     }
   }
   function toggleShoes() {
     if (!shoesToggle) {
-      dispatch(addToDisplayType({ type: "SHOES" }));
       setShoesToggle(!shoesToggle);
       dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
     } else {
-      dispatch(removeFromDisplayType({ type: "SHOES" }));
       setShoesToggle(!shoesToggle);
       dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
     }
   }
   function toggleMen() {
     if (!menToggle) {
-      dispatch(addToDisplayFor({ for: "MEN" }));
       setMenToggle(!menToggle);
       dispatch(toggleMenBox({ menChecked: !menToggle }));
     } else {
-      dispatch(removeFromDisplayFor({ for: "MEN" }));
       setMenToggle(!menToggle);
       dispatch(toggleMenBox({ menChecked: !menToggle }));
     }
   }
   function toggleWomen() {
     if (!womenToggle) {
-      dispatch(addToDisplayFor({ for: "WOMEN" }));
       setWomenToggle(!womenToggle);
       dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
     } else {
-      dispatch(removeFromDisplayFor({ for: "WOMEN" }));
       setWomenToggle(!womenToggle);
       dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
     }
   }
   function toggleKids() {
     if (!kidsToggle) {
-      dispatch(addToDisplayFor({ for: "KIDS" }));
       setKidsToggle(!kidsToggle);
       dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
     } else {
-      dispatch(removeFromDisplayFor({ for: "KIDS" }));
       setKidsToggle(!kidsToggle);
       dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
     }

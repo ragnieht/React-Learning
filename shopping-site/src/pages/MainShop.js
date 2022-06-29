@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from "react";
 import MainItemsDisplay from "../components/Items/MainItemsDisplay";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { addToDisplay } from "../store/itemSlice";
 import SideNavBar from "../components/layout/SideNavBar";
+import { useDispatch } from "react-redux";
 
 export default function MainShop() {
-  const [displayItems, setDisplayItems] = useState(
-    useSelector((state) => state.items.all)
-  );
-  const displayed = useSelector((state) => state.items.display);
+  const displayItems = [];
+  const allItems = useSelector((state) => state.items.all);
+  const checkBox = useSelector((state) => state.items.checkBox);
   const dispatch = useDispatch();
 
-  const checked = useSelector((state) => state.items.checkBox);
   useEffect(() => {
-    setDisplayItems(displayed);
-    console.log(displayItems);
-    console.log(checked);
-  }, [, checked]);
+    console.log(allItems);
+    console.log(checkBox);
+  }, [dispatch]);
 
   return (
     <div>
       <SideNavBar />
-      <MainItemsDisplay items={displayItems} />
+      <MainItemsDisplay items={allItems} />
     </div>
   );
 }

@@ -6,3 +6,7 @@
 .content li {
   list-style: none;
 }
+
+.item {
+  width: auto;
+}

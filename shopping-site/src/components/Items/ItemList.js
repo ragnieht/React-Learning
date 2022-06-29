@@ -7,7 +7,7 @@ export default function ItemList(props) {
     <div className={classes.list}>
       <Grid container spacing={2}>
         {props.items.map((item) => (
-          <Grid item xs={4} key={item.id}>
+          <Grid item xs={5} key={item.id}>
             <Item
               key={item.id}
               image={item.image}
