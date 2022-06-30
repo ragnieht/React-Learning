@@ -9,10 +9,9 @@ import {
   toggleMenBox,
   toggleWomenBox,
   toggleKidsBox,
-  addToDisplayType,
-  removeFromDisplayType,
-  addToDisplayFor,
-  removeFromDisplayFor,
+  addFilter,
+  removeFilter,
+  filterDisplay,
 } from "../../store/itemSlice";
 
 export default function SideNavBarCheckboxType(props) {
@@ -32,54 +31,66 @@ export default function SideNavBarCheckboxType(props) {
     if (!topsToggle) {
       setTopsToggle(!topsToggle);
       dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
+      dispatch(addFilter({ type: "TOP" }));
     } else {
       setTopsToggle(!topsToggle);
       dispatch(toggleTopsBox({ topsChecked: !topsToggle }));
+      dispatch(removeFilter({ type: "TOP" }));
     }
   }
   function toggleBottoms() {
     if (!bottomsToggle) {
       setBottomsToggle(!bottomsToggle);
       dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
+      dispatch(addFilter({ type: "BOTTOM" }));
     } else {
       setBottomsToggle(!bottomsToggle);
       dispatch(toggleBottomsBox({ bottomsChecked: !bottomsToggle }));
+      dispatch(removeFilter({ type: "BOTTOM" }));
     }
   }
   function toggleShoes() {
     if (!shoesToggle) {
       setShoesToggle(!shoesToggle);
       dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
+      dispatch(addFilter({ type: "SHOES" }));
     } else {
       setShoesToggle(!shoesToggle);
       dispatch(toggleShoesBox({ shoesChecked: !shoesToggle }));
+      dispatch(removeFilter({ type: "SHOES" }));
     }
   }
   function toggleMen() {
     if (!menToggle) {
       setMenToggle(!menToggle);
       dispatch(toggleMenBox({ menChecked: !menToggle }));
+      dispatch(addFilter({ for: "MEN" }));
     } else {
       setMenToggle(!menToggle);
       dispatch(toggleMenBox({ menChecked: !menToggle }));
+      dispatch(removeFilter({ for: "MEN" }));
     }
   }
   function toggleWomen() {
     if (!womenToggle) {
       setWomenToggle(!womenToggle);
       dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
+      dispatch(addFilter({ for: "WOMEN" }));
     } else {
       setWomenToggle(!womenToggle);
       dispatch(toggleWomenBox({ womenChecked: !womenToggle }));
+      dispatch(removeFilter({ for: "WOMEN" }));
     }
   }
   function toggleKids() {
     if (!kidsToggle) {
       setKidsToggle(!kidsToggle);
       dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
+      dispatch(addFilter({ for: "KIDS" }));
     } else {
       setKidsToggle(!kidsToggle);
       dispatch(toggleKidsBox({ kidsChecked: !kidsToggle }));
+      dispatch(removeFilter({ for: "KIDS" }));
     }
   }
 
