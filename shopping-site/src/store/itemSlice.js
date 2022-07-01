@@ -40,27 +40,37 @@ export const itemSlice = createSlice({
   initialState,
   reducers: {
     filterDisplay: (state, action) => {
-      state.display = [];
-      let before = [];
-      state.filter.type.forEach((e) => {
-        state.all
-          .filter((item) => item.type === e)
-          .map((item) => state.display.push(item));
-      });
-      state.filter.for.forEach((e) => {
-        state.all
-          .filter((item) => item.for === e)
-          .map((item) => state.display.push(item));
-      });
+      if (
+        !state.checkBox.topsChecked &&
+        !state.checkBox.bottomsChecked &&
+        !state.checkBox.shoesChecked &&
+        !state.checkBox.menChecked &&
+        !state.checkBox.womenChecked &&
+        !state.checkBox.kidsChecked
+      ) {
+        state.display = state.all;
+      } else {
+        state.display = [];
+        state.filter.type.forEach((e) => {
+          state.all
+            .filter((item) => item.type === e)
+            .map((item) => state.display.push(item));
+        });
+        state.filter.for.forEach((e) => {
+          state.all
+            .filter((item) => item.for === e)
+            .map((item) => state.display.push(item));
+        });
 
-      const unique = new Set();
-      const temp = state.display.filter((item) => {
-        const duplicate = unique.has(item.id);
-        unique.add(item.id);
-        return !duplicate;
-      });
+        const unique = new Set();
+        const temp = state.display.filter((item) => {
+          const duplicate = unique.has(item.id);
+          unique.add(item.id);
+          return !duplicate;
+        });
 
-      state.display = temp;
+        state.display = temp;
+      }
     },
     addFilter: (state, action) => {
       if (action.payload.type) state.filter.type.push(action.payload.type);
