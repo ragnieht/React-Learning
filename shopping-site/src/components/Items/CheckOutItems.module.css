@@ -1,0 +1,27 @@
+.content {
+  height: 7rem;
+  margin-left: -2rem;
+}
+
+.title {
+  margin-left: 5rem;
+  margin-top: -3rem;
+  font-size: 1.5rem;
+}
+
+.price {
+  margin-left: 45rem;
+  margin-top: -2rem;
+  font-size: 1.5rem;
+}
+
+.actions {
+  margin-left: 49rem;
+  margin-top: -2rem;
+  font-size: 1.5rem;
+}
+
+.actions Button {
+  color: white;
+  background-color: black;
+}

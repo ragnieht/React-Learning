@@ -6,6 +6,8 @@ import WomenPage from "./pages/WomenPage";
 import KidsPage from "./pages/KidsPage";
 import MainShop from "./pages/MainShop";
 import AdultsPage from "./pages/AdultsPage";
+import CartPage from "./pages/CartPage";
+import FavouritesPage from "./pages/FavouritesPage";
 import SimpleContainer from "./components/layout/SimpleContainer";
 import { useDispatch } from "react-redux";
 import { getItemsAsync } from "./store/itemSlice";
@@ -40,6 +42,12 @@ export default function App() {
         </Route>
         <Route path="/shop-adults">
           <AdultsPage />
+        </Route>
+        <Route path="/shoppingCart">
+          <CartPage />
+        </Route>
+        <Route path="/favourites">
+          <FavouritesPage />
         </Route>
       </SimpleContainer>
     </Switch>
