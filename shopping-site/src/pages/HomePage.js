@@ -4,6 +4,7 @@ import classes from "./HomePage.module.css";
 import { Link } from "react-router-dom";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Button } from "@mui/material";
+
 export default function HomePage() {
   return (
     <div>

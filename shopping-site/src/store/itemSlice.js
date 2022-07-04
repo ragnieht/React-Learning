@@ -34,6 +34,10 @@ const initialState = {
     womenChecked: false,
     kidsChecked: false,
   },
+  cart: {
+    items: [],
+  },
+  fav: [],
 };
 export const itemSlice = createSlice({
   name: "items",
@@ -106,7 +110,44 @@ export const itemSlice = createSlice({
     toggleKidsBox: (state, action) => {
       state.checkBox.kidsChecked = action.payload.kidsChecked;
     },
-
+    addToCart: (state, action) => {
+      let input = action.payload;
+      let toPush = state.all[state.all.findIndex((item) => item.id === input)];
+      if (state.cart.items.find((item) => item.id === input)) {
+        state.cart.items[
+          state.cart.items.findIndex((item) => item.id === input)
+        ].count =
+          state.cart.items[
+            state.cart.items.findIndex((item) => item.id === input)
+          ].count + 1;
+      } else {
+        state.cart.items.push({ ...toPush, count: 1 });
+      }
+    },
+    removeFromCart: (state, action) => {
+      let input = action.payload;
+      let curItemIndex = state.cart.items.findIndex(
+        (item) => item.id === input
+      );
+      if (state.cart.items[curItemIndex].count > 1) {
+        state.cart.items[curItemIndex].count =
+          state.cart.items[curItemIndex].count - 1;
+      } else {
+        state.cart.items.splice(curItemIndex, 1);
+      }
+    },
+    resetCart: (state, action) => {
+      state.cart.items = [];
+    },
+    toggleFav: (state, action) => {
+      let input = action.payload;
+      let curIndex = state.fav.findIndex((item) => item.id === input);
+      if (state.fav.some((item) => item.id === input)) {
+        state.fav.splice(curIndex, 1);
+      } else {
+        state.fav.push(state.all.find((item) => item.id === input));
+      }
+    },
     // addToDisplayType: (state, action) => {
     //   state.all
     //     .filter((item) => item.type === action.payload)
@@ -168,6 +209,10 @@ export const itemSlice = createSlice({
 });
 
 export const {
+  toggleFav,
+  resetCart,
+  addToCart,
+  removeFromCart,
   addFilter,
   removeFilter,
   filterDisplay,

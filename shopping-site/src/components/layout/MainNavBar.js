@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import classes from "./MainNavBar.module.css";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-
+import { useSelector } from "react-redux";
 export default function MainNavBar() {
+  const cart = useSelector((state) => state.items.cart.items);
+  let temp;
+  temp = cart.map((item) => item.count).reduce((a, b) => a + b, 0);
+
   return (
     <div className={classes.header}>
       <div className={classes.logo}>
@@ -59,7 +63,7 @@ export default function MainNavBar() {
           <li className={classes.shoppingCart}>
             <Link to="/shoppingCart">
               <ShoppingBagOutlinedIcon fontSize="large" />
-              <span className={classes.badge}>5</span>
+              <span className={classes.badge}>{temp}</span>
             </Link>
           </li>
           <li className={classes.favourites}>

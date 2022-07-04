@@ -16,6 +16,7 @@
 }
 
 .actions Button {
+  font-size: 10px;
   margin-left: 1rem;
   border: 1px solid black;
   background-color: white;

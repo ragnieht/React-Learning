@@ -11,9 +11,11 @@ export default function CheckOutList(props) {
         {props.items.items.map((item) => (
           <CheckOutItems
             key={item.id}
+            id={item.id}
             title={item.title}
-            price={item.price}
+            price={"$" + parseFloat(item.price.replace("$", "")) * item.count}
             image={item.image}
+            count={item.count}
           />
         ))}
       </ul>

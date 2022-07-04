@@ -3,12 +3,25 @@ import { Avatar } from "@mui/material";
 import classes from "./CheckOutItems.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { Button } from "@mui/material";
-
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../store/itemSlice";
 export default function CheckOutItems(props) {
+  const dispatch = useDispatch();
+
+  function addHandler() {
+    dispatch(addToCart(props.id));
+  }
+
+  function removeHandler() {
+    dispatch(removeFromCart(props.id));
+  }
   return (
     <div className={classes.content}>
-      <div>
+      <div className={classes.count}>
+        <h2>{props.count}</h2>
+        <p>x</p>
+      </div>
+      <div className={classes.avatar}>
         <Avatar
           variant="rounded"
           src={props.image}
@@ -19,14 +32,12 @@ export default function CheckOutItems(props) {
       <div className={classes.title}>{props.title}</div>
       <div className={classes.price}>{props.price}</div>
       <div className={classes.actions}>
-        <Button>
+        <button onClick={addHandler}>
           <AddIcon />
-        </Button>
-      </div>
-      <div className={classes.actions}>
-        <Button>
+        </button>
+        <button onClick={removeHandler}>
           <RemoveIcon />
-        </Button>
+        </button>
       </div>
     </div>
   );

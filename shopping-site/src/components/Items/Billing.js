@@ -4,7 +4,7 @@ import classes from "./Billing.module.css";
 import { useSelector } from "react-redux";
 
 export default function Billing(props) {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.items.cart);
 
   return (
     <div className={classes.checkoutBox}>

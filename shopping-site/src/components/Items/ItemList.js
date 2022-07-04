@@ -10,6 +10,7 @@ export default function ItemList(props) {
           <Grid item xs={4} key={item.id}>
             <Item
               key={item.id}
+              id={item.id}
               image={item.image}
               title={item.title}
               price={item.price}
