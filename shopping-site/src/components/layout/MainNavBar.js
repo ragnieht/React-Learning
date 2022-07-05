@@ -13,7 +13,7 @@ export default function MainNavBar() {
     <div className={classes.header}>
       <div className={classes.logo}>
         <Link to="/">
-          <h3>LOGO</h3>
+          <h3>APPAREL</h3>
         </Link>
       </div>
       <nav>
