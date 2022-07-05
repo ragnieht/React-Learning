@@ -1,11 +1,12 @@
 import React from "react";
-import Card from "../Card/Card";
+import ReduxLogo from "./images/ReduxLogo.jpg";
 export default function ReduxJs() {
   return (
-    <div>
-      <Card>
-        <h2>Redux JS</h2>
-      </Card>
+    <div className="skillsContainer JS">
+      <div className="reduxLogo">
+        <img src={ReduxLogo} alt="ReduxLogo" />
+        <p>REDUX JS</p>
+      </div>
     </div>
   );
 }

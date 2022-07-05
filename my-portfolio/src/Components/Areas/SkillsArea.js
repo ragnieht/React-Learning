@@ -9,15 +9,15 @@ import MaterialUi from "../Skills/MaterialUi";
 
 export default function SkillsArea() {
   return (
-    <div className="skills container">
-      <div className="row one">
+    <div id="skills">
+      <div className="skills">
         <ul>
           <JavaScript />
           <CSS />
           <HTML />
         </ul>
       </div>
-      <div className="row two">
+      <div className="skills">
         <ul>
           <ReactJs />
           <ReduxJs />

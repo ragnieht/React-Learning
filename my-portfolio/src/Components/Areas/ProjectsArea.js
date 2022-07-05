@@ -1,10 +1,10 @@
 import React from "react";
 import "./Area.css";
-
+import ProjectOne from "../Card/ProjectOne";
 export default function ProjectsArea() {
   return (
-    <div className="projects container">
-      <h1>Projects Area</h1>
+    <div id="projects" className="projects container">
+      <ProjectOne />
     </div>
   );
 }

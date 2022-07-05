@@ -1,13 +1,15 @@
 import React from "react";
-import Card from "../Card/Card";
+
+import JSLogo from "./images/JSLogo.png";
+import "./Skills.css";
 
 export default function JavaScript() {
   return (
-    <div>
-      <Card>
-        <img src="JSLogo.png" alt="JSLogo" />
-        <h2>JavaScript</h2>
-      </Card>
+    <div className="skillsContainer JS">
+      <div className="jsLogo">
+        <img src={JSLogo} alt="JSLogo" />
+        <p>JAVASCRIPT</p>
+      </div>
     </div>
   );
 }

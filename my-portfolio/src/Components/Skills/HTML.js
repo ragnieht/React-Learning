@@ -1,11 +1,12 @@
 import React from "react";
-import Card from "../Card/Card";
+import HtmlLogo from "./images/HtmlLogo.png";
 export default function HTML() {
   return (
-    <div>
-      <Card>
-        <h2>HTML</h2>
-      </Card>
+    <div className="skillsContainer HTML">
+      <div className="htmlLogo">
+        <img src={HtmlLogo} alt="HTMLLogo" />
+        <p>HTML</p>
+      </div>
     </div>
   );
 }

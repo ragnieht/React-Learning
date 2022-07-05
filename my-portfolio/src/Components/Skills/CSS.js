@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "../Card/Card";
-
+import CSSLogo from "./images/CSSLogo.png";
 export default function CSS() {
   return (
-    <div>
-      <Card>
-        <h2>CSS</h2>
-      </Card>
+    <div className="skillsContainer CSS">
+      <div className="cssLogo">
+        <img src={CSSLogo} alt="CSSLogo" />
+        <p>CSS</p>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function SimpleContainer(props) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="false">
-        <MainNavigation />
+        <MainNavigation onHomeClick={props.onHomeClick} />
         <main>{props.children}</main>
       </Container>
     </React.Fragment>
